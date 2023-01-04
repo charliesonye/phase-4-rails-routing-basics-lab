@@ -4,4 +4,8 @@ class Student < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def self.highest_student_grade
+    self.where('grade = ?', self.maximum(:grade)).first
+  end
+
 end
